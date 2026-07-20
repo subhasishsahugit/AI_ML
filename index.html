@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subhasish Sahu | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060714;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #f4f7ff;
+      --muted: #cfd6ff;
+      --accent: #8b5cf6;
+      --accent-2: #06b6d4;
+      --accent-3: #f43f5e;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at 88% 12%, rgba(6, 182, 212, 0.35), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(244, 63, 94, 0.28), transparent 30%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(6, 7, 20, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero {
+      padding: 70px 0 28px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(2rem, 6vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #a78bfa, #22d3ee, #fb7185);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .summary {
+      margin-top: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: 24px 0;
+    }
+
+    section h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+    }
+
+    .timeline { display: grid; gap: 16px; }
+
+    .project-grid,
+    .skill-grid,
+    .competency-grid,
+    .cert-grid,
+    .lang-grid,
+    .badge-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e8edff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 9px 13px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.86rem;
+    }
+
+    ul { margin: 0; padding-left: 18px; }
+
+    .empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 0 38px;
+      color: #d2d8ff;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      nav { justify-content: flex-start; overflow-x: auto; scrollbar-width: thin; }
+      .hero { text-align: left; }
+      .lead { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Tech Stack</a>
+        <a href="#competencies">Competencies</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#languages">Languages</a>
+        <a href="#stats">GitHub Stats</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="about">
+      <span class="badge">🎓 B.Tech CSE Student • AI/ML • Full Stack</span>
+      <h1>Hi, I'm <span class="gradient">Subhasish Sahu</span></h1>
+      <p class="lead">
+        3rd-year Computer Science & Engineering student at <a href="https://nist.edu/" target="_blank" rel="noreferrer" style="color:#a5f3fc;">NIST University, Odisha</a> with practical experience in Data Analytics, AI/ML, IoT, and Full Stack Development. Passionate about solving real-world problems through technology.
+      </p>
+
+      <div class="grid summary">
+        <article class="card"><strong>Name</strong><br>Subhasish Sahu</article>
+        <article class="card"><strong>Location</strong><br>Odisha, India 🇮🇳</article>
+        <article class="card"><strong>Education</strong><br>B.Tech CSE (NIST University)</article>
+        <article class="card"><strong>Current SGPA</strong><br>8.22 / 10</article>
+      </div>
+
+      <div class="card" style="margin-top:20px; text-align:left;">
+        <h3 style="margin-top:0;">Current Focus</h3>
+        <ul>
+          <li>Currently building <strong>FoodSave</strong> — AI-powered food wastage reduction platform 🍽️</li>
+          <li>Learning advanced Python for data science, big data technologies, and cloud infrastructure</li>
+          <li>Open to internships, full-time opportunities, open-source collaboration, and mentorship</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>🎓 Education</h2>
+      <div class="timeline">
+        <article class="card">
+          <h3>B.Tech, Computer Science & Engineering — NIST University (BPUT Board)</h3>
+          <p>August 2024 – Present • Ganjam, Odisha • <strong>SGPA: 8.22 / 10</strong></p>
+          <p>Focused on computer networks, DSA, operating systems, computer organization, architecture, and DBMS. Strong coding foundation in C, Java, and Python with specialization in AI/ML, full-stack development, and data science.</p>
+        </article>
+        <article class="card">
+          <h3>Diploma, Computer Science & Engineering — UCPES (SCTE & VT Board)</h3>
+          <p>2021 – 2024 • Odisha • <strong>Performance: 81.65%</strong></p>
+          <p>Built practical skills in C, Java, Python, web development, DBMS, OS, and data structures through hands-on labs and projects.</p>
+        </article>
+        <article class="card">
+          <h3>High School Certificate — BSE Odisha</h3>
+          <p>2011 – 2021 • Odisha • <strong>Performance: 80.33% (Grade A2)</strong></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>💼 Professional Experience</h2>
+      <article class="card empty">Professional experience section is ready to be populated with internships, roles, and impact metrics.</article>
+    </section>
+
+    <section id="projects">
+      <h2>🚀 Featured Projects</h2>
+      <div class="project-grid">
+        <article class="card">
+          <h3>🍽️ FoodSave — AI Food Wastage Reduction</h3>
+          <p><strong>Status:</strong> In Progress • Jan 2026 – Present</p>
+          <p>Web-based platform connecting food donors with NGOs in real time, enhanced with AI-powered spoilage prediction and analytics.</p>
+          <ul>
+            <li>Donor listing and NGO pickup scheduling</li>
+            <li>Smart notifications for time-sensitive donations</li>
+            <li>Dashboard analytics for food distribution insights</li>
+          </ul>
+          <div class="tag-wrap">
+            <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Web Development</span><span class="tag">REST APIs</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://subhasishsahugit.github.io/FoodSave/" target="_blank" rel="noreferrer">Live Demo</a>
+            <a class="btn" href="https://github.com/subhasishsahugit/FoodSave" target="_blank" rel="noreferrer">Source Code</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>📚 SEMICOLON — Educational Resource Portal</h3>
+          <p><strong>Status:</strong> Completed • 2023 – 2024</p>
+          <p>Comprehensive e-learning platform with responsive UI, interactive forums, and GitHub Pages CI/CD deployment.</p>
+          <ul>
+            <li>Mobile-optimized responsive frontend</li>
+            <li>Dynamic course delivery and authentication UI</li>
+            <li>25+ successful production deployments</li>
+          </ul>
+          <div class="tag-wrap">
+            <span class="tag">HTML5</span><span class="tag">SCSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">Git/GitHub</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://subhasishsahugit.github.io/Elearning/" target="_blank" rel="noreferrer">Live Demo</a>
+            <a class="btn" href="https://github.com/subhasishsahugit/Elearning" target="_blank" rel="noreferrer">Source Code</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>🌱 Auto Irrigation System — IoT Lab Project</h3>
+          <p><strong>Status:</strong> Completed • 2023</p>
+          <p>Automated smart irrigation system using IoT sensors and microcontrollers for real-time monitoring and water conservation.</p>
+          <ul>
+            <li>Soil moisture-based pump automation</li>
+            <li>Hardware-software integration and threshold control</li>
+            <li>Embedded C for device-level logic</li>
+          </ul>
+          <div class="tag-wrap">
+            <span class="tag">C Programming</span><span class="tag">IoT Sensors</span><span class="tag">Microcontrollers</span><span class="tag">Embedded Systems</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://subhasishsahugit.github.io/diploma-Iot/" target="_blank" rel="noreferrer">Live Demo</a>
+            <a class="btn" href="https://github.com/subhasishsahugit/diploma-Iot" target="_blank" rel="noreferrer">Source Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>🧰 Tech Stack & Skills</h2>
+      <div class="skill-grid">
+        <article class="card">
+          <h3>Core Languages</h3>
+          <div class="tag-wrap">
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span><span class="tag">JavaScript</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Domains</h3>
+          <div class="tag-wrap">
+            <span class="tag">AI/ML</span><span class="tag">Data Analytics</span><span class="tag">NLP/ASR</span><span class="tag">IoT</span><span class="tag">Full Stack</span><span class="tag">Cloud & Big Data</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="competencies">
+      <h2>🎯 Core Competencies</h2>
+      <div class="competency-grid">
+        <article class="card"><h3>Full Stack Development</h3><p>HTML5, CSS3, JavaScript, responsive design, UI/UX implementation, REST APIs, CI/CD.</p></article>
+        <article class="card"><h3>Data Analytics & Science</h3><p>Python-based analytics, visualization, ETL lifecycle, data curation and quality assurance.</p></article>
+        <article class="card"><h3>AI/ML & NLP</h3><p>Model training, NLP pipelines, speech recognition, dataset development with NLTK workflows.</p></article>
+        <article class="card"><h3>Networking & Security</h3><p>CCNA routing/switching basics, enterprise networking, cybersecurity fundamentals.</p></article>
+        <article class="card"><h3>IoT & Embedded</h3><p>Sensor integration, microcontroller programming, automation systems, C for embedded development.</p></article>
+        <article class="card"><h3>Professional Skills</h3><p>Project management, technical documentation, team collaboration, structured problem solving.</p></article>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>📜 Certifications & Training</h2>
+      <div class="cert-grid">
+        <article class="card empty">Add certifications, coursework, and training programs here.</article>
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2>🗣️ Languages</h2>
+      <div class="lang-grid">
+        <article class="card">English</article>
+        <article class="card">Hindi</article>
+        <article class="card">Odia</article>
+      </div>
+    </section>
+
+    <section id="stats">
+      <h2>📈 GitHub Statistics</h2>
+      <article class="card empty">Add GitHub stat cards or contribution widgets if you want live profile metrics here.</article>
+    </section>
+
+    <section id="achievements">
+      <h2>🏅 Badges & Achievements</h2>
+      <div class="badge-grid">
+        <article class="card empty">Add badges, milestones, or awards to highlight achievements.</article>
+      </div>
+    </section>
+
+    <section id="connect">
+      <h2>🤝 Let's Connect</h2>
+      <article class="card">
+        <p>Open to internships, collaborations, and impactful real-world projects.</p>
+        <div class="links">
+          <a class="btn" href="https://github.com/subhasishsahugit" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="mailto:subhasishsahu@example.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    Designed as a single-page vibrant modern portfolio • © Subhasish Sahu
+  </footer>
+</body>
+</html>
